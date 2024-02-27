@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class arrayLAB {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double[] values = new double[20];
+        int count = 0;
+        System.out.println("Enter double values up to 20 (if the value is less than 20, type a key that is not a number to end)");
+        while (count < 20) {
+            System.out.print("Enter value" + ": ");
+            if (scanner.hasNextDouble()) {
+                values[count] = scanner.nextDouble();
+                count++;
+            } else {
+                break;
+            }
+        }
+
+        System.out.println("Entered values:");
+        for (int i = 0; i < count; i++) {
+            System.out.println(values[i]);
+        }
+
+        scanner.close();
+    }  }
