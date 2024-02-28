@@ -1,11 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-    </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-  </component>
-</module>
+import java.util.Scanner;
+
+public class BadSubscriptCaught {
+    public static void main(String[] args) {
+        // array of first names
+        String[] firstNames = {
+                "Alice", "Molly", "Charles", "David", "Eva",
+                "James", "Sam", "Mia", "Tom", "Julia"
+        };
+
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.println("Enter an index (0 to 9): ");
+            int index = scanner.nextInt();
+
+            // Display the name at the requested position
+            System.out.println("Name at index " + index + ": " + firstNames[index]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Index is out of range. Please enter a valid index (0 to 9).");
+        }
+
+        scanner.close();
+    }
+}
