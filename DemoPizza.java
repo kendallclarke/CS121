@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicReference;
@@ -39,7 +38,7 @@ public class DemoPizza {
                     System.arraycopy(selectedToppings, 0, selectedToppingsTrimmed, 0, numToppings[0]);
                     displayPizza(selectedToppingsTrimmed);
                 } else {
-                    System.out.println("No toppings selected. Goodbye!");
+                    System.out.println("No toppings selected!");
                 }
             } else {
                 selectedToppings[numToppings[0]] = String.valueOf(input[0]);
@@ -56,12 +55,14 @@ public class DemoPizza {
         Object[] options = {"Yes", "No"};
         int choice = JOptionPane.showOptionDialog(null, "Do you want the pizza to be delivered?", "Delivery Option", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         if (choice == JOptionPane.YES_OPTION) {
-            String address = JOptionPane.showInputDialog(null, "Enter delivery address:");
+            String address = JOptionPane.showInputDialog(null, "Enter an address:");
             DeliveryPizza deliveryPizza = new DeliveryPizza(toppings, address, toppings.length);
-            JOptionPane.showMessageDialog(null, deliveryPizza.toString(), "Pizza Order Details", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, deliveryPizza.toString(), "Pizza Order", JOptionPane.INFORMATION_MESSAGE);
         } else {
             Pizza pizza = new Pizza(toppings, toppings.length);
-            JOptionPane.showMessageDialog(null, pizza.toString(), "Pizza Order Details", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, pizza.toString(), "Pizza Order", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }
+
+      
